@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+
+    <item android:id="@+id/take_picture" android:icon="@android:drawable/ic_menu_camera"
+        android:title="Take Picture" />
+
+    </group>
+    <item android:title="Settings">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/setting_sound" android:icon="@android:drawable/ic_lock_silent_mode"
+                    android:title="Sound" />
+                <item android:id="@+id/setting_vibrate" android:icon="@drawable/ic_action_notification_vibration"
+                    android:title="Vibrate" />
+                <item android:id="@+id/setting_notification" android:icon="@android:drawable/ic_notification_clear_all"
+                    android:title="Notification" />
+                <item android:id="@+id/setting_dark_theme" android:icon="@android:drawable/ic_menu_manage"
+                    android:title="Dark Theme" />
+            </group>
+
+        </menu>
+    </item>
+
+</menu>
