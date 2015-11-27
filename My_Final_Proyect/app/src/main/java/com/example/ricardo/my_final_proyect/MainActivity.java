@@ -36,19 +36,20 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final int CAMERA_REQUEST = 0;
     ImageView img;
-    ArrayList mSelectedItems;
-    String mCurrentPhotoPath;
-    String FILENAME = "settingFile";
-    String string = "hello world";
+
+    private String drawerTitle;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        img = (ImageView) findViewById(R.id.camera_IV);
+
+        img = (ImageView) findViewById(R.id.circle_image);
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -80,8 +81,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        /*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);*/
         return true;
     }
 
@@ -106,16 +107,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 TView.setText("Best Record by: " + message);
             }
         }
-
-
         if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             img.setImageBitmap(imageBitmap);
-
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -140,11 +137,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.action_sign_in) {
             RegisterActivity register = new RegisterActivity();
             register.show(getFragmentManager(), "");
-
-            /*dialog.setTitle("Sign in");
-            dialog.setContentView(R.layout.dialog_sign_up);
-            dialog.show();*/
-
         }
         if (id == R.id.action_about) {
             dialog.setTitle("About");
