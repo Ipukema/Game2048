@@ -8,86 +8,59 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
+import android.widget.CompoundButton;
+import android.widget.Toast;
+import android.widget.ToggleButton;
+
 
 import com.example.ricardo.my_final_proyect.R;
 
+import java.util.TooManyListenersException;
 
-public class SettingActivity extends DialogFragment {
+
+public class SettingActivity extends DialogFragment implements CompoundButton.OnCheckedChangeListener{
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
+        ToggleButton sound = (ToggleButton)getActivity().findViewById(R.id.toggleButton);
+//        sound.setOnCheckedChangeListener((CompoundButton.OnCheckedChangeListener) getActivity());
         builder.setView(inflater.inflate(R.layout.dialog_setting, null))
                 // Add action buttons
                 .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        // sign in the user ...
+                        saveSetting();
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
 
                     }
                 });
         return builder.create();
     }
+
+    private void saveSetting() {
+    }
+
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+if(isChecked){
+    Toast.makeText(getActivity(), "Sound is on", Toast.LENGTH_SHORT).show();
+}else{
+    Toast.makeText(getActivity(), "Sound is off", Toast.LENGTH_SHORT).show();
+}
+
+    }
 }
 
 
 
-/*package com.example.ricardo.my_final_proyect.Dialogs;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
-
-import com.example.ricardo.my_final_proyect.R;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-
-public class SettingActivity extends DialogFragment {
-    ArrayList<String> list = new ArrayList<>();
-
-    @Override
-    public Dialog onCreateDialog(Bundle saveInstanceState){
-        final String[] items = getResources().getStringArray(R.array.setting);
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-builder.setTitle("Setting").setMultiChoiceItems(R.array.setting, null, new DialogInterface.OnMultiChoiceClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                if (isChecked){
-                    list.add(items[which]);
-                }
-                else if (list.contains(items[which])){
-                    list.remove(items[which]);
-                }
-            }
-        }
-).setPositiveButton("Save", new DialogInterface.OnClickListener() {
-    @Override
-    public void onClick(DialogInterface dialog, int which) {
-        String selections = "";
-        for(String ms : list){  selections = selections + "\n" + ms;}
-        writeToFile(selections);
-        Toast.makeText(getActivity(),"Save: "+selections,Toast.LENGTH_LONG).show();
-
-    }
-});
-        return builder.create();
-    }
+/*
     public void writeToFile(String data) {
         try {
 
