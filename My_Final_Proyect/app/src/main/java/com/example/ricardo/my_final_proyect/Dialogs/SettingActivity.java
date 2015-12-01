@@ -24,7 +24,7 @@ public class SettingActivity extends DialogFragment implements CompoundButton.On
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         ToggleButton sound = (ToggleButton)getActivity().findViewById(R.id.toggleButton);
-//        sound.setOnCheckedChangeListener((CompoundButton.OnCheckedChangeListener) getActivity());
+
         builder.setView(inflater.inflate(R.layout.dialog_setting, null))
                 // Add action buttons
                 .setPositiveButton("Done", new DialogInterface.OnClickListener() {
@@ -39,8 +39,10 @@ public class SettingActivity extends DialogFragment implements CompoundButton.On
 
                     }
                 });
+        sound.setOnCheckedChangeListener(this);
         return builder.create();
     }
+
 
     private void saveSetting() {
     }
