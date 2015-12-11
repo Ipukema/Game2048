@@ -13,9 +13,10 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 
+import com.example.ricardo.my_final_proyect.MainActivity;
 import com.example.ricardo.my_final_proyect.R;
 
-import java.util.TooManyListenersException;
+
 
 
 public class SettingActivity extends DialogFragment implements CompoundButton.OnCheckedChangeListener{
@@ -23,9 +24,7 @@ public class SettingActivity extends DialogFragment implements CompoundButton.On
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        ToggleButton sound = (ToggleButton)getActivity().findViewById(R.id.toggleButton);
-
-        builder.setView(inflater.inflate(R.layout.dialog_setting, null))
+         builder.setView(inflater.inflate(R.layout.dialog_setting, null))
                 // Add action buttons
                 .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                     @Override
@@ -35,11 +34,12 @@ public class SettingActivity extends DialogFragment implements CompoundButton.On
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
+                        dialog.dismiss();
 
                     }
                 });
-        sound.setOnCheckedChangeListener(this);
+        ToggleButton sound = (ToggleButton)getActivity().findViewById(R.id.toggleButton);
+    //  sound.setOnCheckedChangeListener(this);
         return builder.create();
     }
 
