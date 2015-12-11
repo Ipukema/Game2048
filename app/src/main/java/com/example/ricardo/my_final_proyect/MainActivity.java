@@ -3,10 +3,12 @@ package com.example.ricardo.my_final_proyect;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.NavigationView;
@@ -25,10 +27,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import com.example.ricardo.my_final_proyect.Dialogs.GetPlayersActivity;
 import com.example.ricardo.my_final_proyect.Dialogs.SettingActivity;
 import com.example.ricardo.my_final_proyect.Dialogs.RegisterActivity;
 import com.example.ricardo.my_final_proyect.Game.GameActivity;
 import com.example.ricardo.my_final_proyect.Game.ScoreActivity;
+
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.net.URLEncoder;
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -132,6 +144,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             return true;
         }
+        if(id==R.id.invite_friend){
+            GetPlayersActivity invite = new GetPlayersActivity();
+            invite.show(getFragmentManager(), "");
+
+        }
         if (id == R.id.action_sign_in) {
             RegisterActivity register = new RegisterActivity();
             register.show(getFragmentManager(), "");
@@ -144,6 +161,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 
 

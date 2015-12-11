@@ -49,5 +49,12 @@
         android:clickable="true"
         android:onClick="openScore" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/dataserver"
+        android:layout_gravity="center_horizontal" />
+
 
 </LinearLayout>
