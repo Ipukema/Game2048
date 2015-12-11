@@ -14,10 +14,22 @@
         android:textAlignment="center"
         android:background="#535353" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search Players"
+        android:id="@+id/searchButton"
+        android:textColor="#e8e8e8"
+        android:background="#767676"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp" />
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
+        android:id="@+id/playerListView"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

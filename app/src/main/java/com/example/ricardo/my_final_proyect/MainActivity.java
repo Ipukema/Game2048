@@ -1,14 +1,8 @@
 package com.example.ricardo.my_final_proyect;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.NavigationView;
@@ -17,36 +11,23 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
-import com.example.ricardo.my_final_proyect.Dialogs.GetPlayersActivity;
+import com.example.ricardo.my_final_proyect.Player.GetPlayersActivity;
 import com.example.ricardo.my_final_proyect.Dialogs.SettingActivity;
 import com.example.ricardo.my_final_proyect.Dialogs.RegisterActivity;
 import com.example.ricardo.my_final_proyect.Game.GameActivity;
 import com.example.ricardo.my_final_proyect.Game.ScoreActivity;
 
-import org.apache.http.client.HttpClient;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.net.URLEncoder;
-import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final int CAMERA_REQUEST = 0;
     ImageView img;
-
     private String drawerTitle;
 
 
@@ -145,8 +126,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return true;
         }
         if(id==R.id.invite_friend){
-            GetPlayersActivity invite = new GetPlayersActivity();
-            invite.show(getFragmentManager(), "");
+          Intent intent = new Intent(this,GetPlayersActivity.class);
+            startActivity(intent);
 
         }
         if (id == R.id.action_sign_in) {
