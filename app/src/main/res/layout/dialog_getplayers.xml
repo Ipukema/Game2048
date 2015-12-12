@@ -26,6 +26,36 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp" />
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Name"
+            android:id="@+id/textView16"
+            android:layout_weight=".3"
+            android:textAlignment="center"
+            android:background="#ecb601"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=" Number"
+            android:id="@+id/textView17"
+            android:layout_weight=".3"
+            android:textAlignment="center"
+            android:background="#ecb601"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -14,8 +14,11 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Ricardo"
             android:id="@+id/playernameTV"
-            android:layout_weight=".5"
-            android:textAlignment="center" />
+            android:layout_weight=".3"
+            android:textAlignment="center"
+            android:background="#424242"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -23,15 +26,31 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="7421"
             android:id="@+id/playernumberTV"
-            android:layout_weight=".5"
-            android:textAlignment="center" />
+            android:layout_weight=".3"
+            android:textAlignment="center"
+            android:background="#424242"
+            android:textStyle="bold"
+            android:textColor="#f2d00e" />
+
     </LinearLayout>
 
-    <TextView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="1"
-        android:id="@+id/playerstatusTV"
-        android:textAlignment="center" />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="7421"
+            android:id="@+id/playerstatusTV"
+            android:layout_weight=".3"
+            android:textAlignment="center"
+            android:autoText="false"
+            android:background="#595959"
+            android:textColor="#eb7216"
+            android:textStyle="bold" />
+    </LinearLayout>
+
 </LinearLayout>
