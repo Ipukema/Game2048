@@ -12,9 +12,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
-/**
- * Created by Ricardo on 12/11/2015.
- */
+
 public class ServiceHelper {
 
     private static final int HTTP_STATUS_OK = 200;
@@ -57,7 +55,7 @@ public class ServiceHelper {
             StatusLine status = response.getStatusLine();
             if (status.getStatusCode() != HTTP_STATUS_OK) {
                 // handle error here
-                throw new ApiException("Invalid response from last.fm" +
+                throw new ApiException("Invalid response from service" +
                         status.toString());
             }
 

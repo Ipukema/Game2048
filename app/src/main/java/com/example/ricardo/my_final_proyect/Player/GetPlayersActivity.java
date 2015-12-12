@@ -13,11 +13,15 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.ricardo.my_final_proyect.Player.Service;
 import com.example.ricardo.my_final_proyect.Adapter.GetPlayerAdapter;
 import com.example.ricardo.my_final_proyect.Player.Player;
 import com.example.ricardo.my_final_proyect.R;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class GetPlayersActivity extends Activity {
@@ -54,6 +58,40 @@ public class GetPlayersActivity extends Activity {
             }
 
         });
+
+        // Restore any already fetched data on orientation change.
+        final Object[] data = (Object[]) getLastNonConfigurationInstance();
+        if(data != null) {
+            this.playerArrayList = (ArrayList<Player>) data[0];
+
+            playerList.setAdapter(new GetPlayerAdapter(this,this.layoutInflator, this.playerArrayList));
+        }
+
     }
-}
+
+
+
+
+
+
+    @Override
+    public Object onRetainNonConfigurationInstance() {
+        Object[] myStuff = new Object[2];
+        myStuff[0] = this.playerArrayList;
+
+        return myStuff;
+    }
+
+
+
+    public void setPlayer(ArrayList<Player> playersArrayList) {
+        this.playerArrayList = playersArrayList;
+        this.playerList.setAdapter(new GetPlayerAdapter(this,this.layoutInflator, this.playerArrayList));
+    }
+
+
+    }
+
+
+
 

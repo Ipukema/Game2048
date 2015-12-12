@@ -60,23 +60,23 @@ public class Service extends AsyncTask<String, Integer, String>
 
         try {
             JSONObject respObj = new JSONObject(result);
+
             JSONObject playersObj = respObj.getJSONObject("Player");
-            JSONArray player_online = playersObj.getJSONArray("Player");
+            JSONArray player_online = playersObj.getJSONArray("ArrayOfPlayer");
+
             for(int i=0; i<player_online.length(); i++) {
-                JSONObject player = player_online.getJSONObject(i);
-                String playerName = player.getString("Name");
-                String matricula= player.getString("Matricula");
-                String status = player.getString("Status");
-
-
-               player_data.add(new Player(playerName, matricula, status));
+                JSONObject playerObj = player_online.getJSONObject(i);
+                String playerName = playerObj.getString("Name");
+                String matriculaPlayer= playerObj.getString("Matricula");
+                String statusPlayer = playerObj.getString("Status");
+                player_data.add(new Player(matriculaPlayer, playerName, statusPlayer));
             }
 
         } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
+        this.activity.setPlayer(player_data);
 
 
     }
