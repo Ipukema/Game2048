@@ -7,6 +7,7 @@ import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -39,15 +40,15 @@ public class GetPlayersActivity extends Activity {
 
             public void onClick(View v) {
 
-                /*inMgr.hideSoftInputFromWindow(searchButton.getWindowToken(), 0);
+                inMgr.hideSoftInputFromWindow(searchButton.getWindowToken(), 0);
                 Service service = new Service(GetPlayersActivity.this);
                 try {
 
                     service.execute();
                 } catch (Exception e) {
-                    lfmTask.cancel(true);
-                    alert(getResources().getString(R.string.no_tracks));
-                }*/
+                    service.cancel(true);
+                    Log.w("GetPlayersActivity",getResources().getString(R.string.no_players));
+                }
 
 
             }

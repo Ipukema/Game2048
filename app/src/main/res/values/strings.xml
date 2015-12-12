@@ -31,5 +31,7 @@
 
 
     <string name="drawer_header_image">drawer header image</string>
+    <string name="looking_for_players">Looking For Players</string>
+    <string name="no_players">No Players</string>
 
 </resources>
