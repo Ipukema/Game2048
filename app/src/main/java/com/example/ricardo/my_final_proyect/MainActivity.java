@@ -16,9 +16,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
-import com.example.ricardo.my_final_proyect.Player.GetPlayersActivity;
 import com.example.ricardo.my_final_proyect.Dialogs.SettingActivity;
+import com.example.ricardo.my_final_proyect.Player.GetPlayersActivity;
+//import com.example.ricardo.my_final_proyect.Dialogs.SettingActivity;
 import com.example.ricardo.my_final_proyect.Dialogs.RegisterActivity;
 import com.example.ricardo.my_final_proyect.Game.GameActivity;
 import com.example.ricardo.my_final_proyect.Game.ScoreActivity;
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -119,9 +122,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         if (id == R.id.action_settings) {
-
-            SettingActivity setting = new SettingActivity();
-            setting.show(getFragmentManager(), "");
+//           SettingActivity settingActivity = new SettingActivity();
+//            settingActivity.show(getFragmentManager(), "");
+            Intent intent = new Intent(this,SettingActivity.class);
+            startActivity(intent);
 
             return true;
         }

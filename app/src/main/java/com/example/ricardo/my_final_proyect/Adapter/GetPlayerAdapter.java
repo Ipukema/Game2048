@@ -1,13 +1,7 @@
 package com.example.ricardo.my_final_proyect.Adapter;
         import java.util.ArrayList;
 
-        import org.json.JSONArray;
-        import org.json.JSONException;
-        import org.json.JSONObject;
-
         import android.content.Intent;
-        import android.graphics.drawable.Drawable;
-        import android.net.Uri;
         import android.util.Log;
         import android.view.LayoutInflater;
         import android.view.View;
@@ -15,10 +9,8 @@ package com.example.ricardo.my_final_proyect.Adapter;
         import android.view.View.OnClickListener;
         import android.widget.BaseAdapter;
         import android.widget.Button;
-        import android.widget.ImageView;
         import android.widget.TextView;
 
-        import com.example.ricardo.my_final_proyect.MainActivity;
         import com.example.ricardo.my_final_proyect.Player.GetPlayersActivity;
         import com.example.ricardo.my_final_proyect.Player.Player;
         import com.example.ricardo.my_final_proyect.R;
@@ -29,18 +21,18 @@ public class GetPlayerAdapter extends BaseAdapter implements OnClickListener {
     private static final String debugTag = "GetPlayerAdapter";
     private GetPlayersActivity activity;
     private LayoutInflater layoutInflater;
-    private ArrayList<Player> listofplayers;
+    private ArrayList<Player> playerArrayList;
 
 
     public GetPlayerAdapter(GetPlayersActivity a, LayoutInflater l, ArrayList<Player> data) {
         this.activity = a;
         this.layoutInflater = l;
-        this.listofplayers = data;
+        this.playerArrayList = data;
     }
 
     @Override
     public int getCount() {
-        return this.listofplayers.size();
+        return this.playerArrayList.size();
     }
 
     @Override
@@ -68,15 +60,14 @@ public class GetPlayerAdapter extends BaseAdapter implements OnClickListener {
     @Override
     public View getView( int pos, View convertView, ViewGroup parent) {
 
-         ViewHolder  holder = new ViewHolder();
+         ViewHolder  holder;
         if (convertView == null) {
+            holder = new ViewHolder();
             convertView = layoutInflater.inflate (R.layout.player_row_layout, parent, false);
-
-          holder.namePlayer = (TextView) convertView.findViewById(R.id.playernameTV);
+            holder.namePlayer = (TextView) convertView.findViewById(R.id.playernameTV);
             holder.matricula = (TextView) convertView.findViewById(R.id.playernumberTV);
             holder.status= (TextView) convertView.findViewById(R.id.playerstatusTV);
 
-            holder.searchButton.setTag(holder);
             convertView.setTag(holder);
         }
         else{
@@ -84,20 +75,18 @@ public class GetPlayerAdapter extends BaseAdapter implements OnClickListener {
         }
 
 
-        convertView.setOnClickListener(this);
 
-        Player player = listofplayers.get(pos);
-        holder.player=player;
+        Player player = playerArrayList.get(pos);
         holder.namePlayer.setText(player.getName());
         holder.matricula.setText(player.getMatricula());
         holder.status.setText(player.getStatus());
-        holder.searchButton.setOnClickListener(this);
+
         return convertView;
     }
 
     @Override
     public void onClick(View v) {
-
+        ViewHolder holder = (ViewHolder) v.getTag();
         if (v instanceof Button) {
 
             Intent intent = new Intent(android.content.Intent.ACTION_VIEW);

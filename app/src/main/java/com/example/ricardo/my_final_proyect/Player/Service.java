@@ -50,7 +50,7 @@ public class Service extends AsyncTask<String, Integer, String>
     protected void onPostExecute(String result)
     {
 
-        ArrayList<Player> player_data = new ArrayList<>();
+        ArrayList<Player> playerArrayList = new ArrayList<>();
 
         progressDialog.dismiss();
         if (result.length() == 0) {
@@ -59,24 +59,20 @@ public class Service extends AsyncTask<String, Integer, String>
         }
 
         try {
-            JSONObject respObj = new JSONObject(result);
-
-            JSONObject playersObj = respObj.getJSONObject("Player");
-            JSONArray player_online = playersObj.getJSONArray("ArrayOfPlayer");
-
-            for(int i=0; i<player_online.length(); i++) {
-                JSONObject playerObj = player_online.getJSONObject(i);
+            JSONArray playerArray = new JSONArray(result);
+            for(int i=0; i<playerArray.length(); i++) {
+                JSONObject playerObj = playerArray.getJSONObject(i);
                 String playerName = playerObj.getString("Name");
                 String matriculaPlayer= playerObj.getString("Matricula");
                 String statusPlayer = playerObj.getString("Status");
-                player_data.add(new Player(matriculaPlayer, playerName, statusPlayer));
+                playerArrayList.add(new Player(matriculaPlayer, playerName, statusPlayer));
             }
 
         } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        this.activity.setPlayer(player_data);
+        this.activity.setPlayer(playerArrayList);
 
 
     }

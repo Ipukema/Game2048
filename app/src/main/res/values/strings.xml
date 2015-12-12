@@ -17,21 +17,23 @@
     <string name="currentScore">0</string>
     <string name="highScore">0</string>
 
-<string-array name="setting">
-    <item>Notifications</item>
-    <item>Vibrate</item>
-    <item>Sound</item>
-    <item>No Ads</item>
-    <item>Dark Theme</item>
-</string-array>
+    <string-array name="setting">
+        <item>Sound</item>
+        <item>Board Color</item>
+        <item>Card Color</item>
+        <item>Font</item>
+        <item>Dark Theme</item>
+    </string-array>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
 
-
     <string name="drawer_header_image">drawer header image</string>
     <string name="looking_for_players">Looking For Players</string>
     <string name="no_players">No Players</string>
+    <string name="title_activity_settings">Settings</string>
+
+
 
 </resources>

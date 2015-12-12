@@ -17,7 +17,8 @@
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,11 +30,10 @@
             android:textStyle="bold|italic"
             android:textSize="20dp" />
 
-        <ToggleButton
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New ToggleButton"
-            android:id="@+id/toggleButton"
+            android:id="@+id/checkBox"
             android:layout_row="0"
             android:layout_column="1" />
 
@@ -47,11 +47,10 @@
             android:textStyle="bold|italic"
             android:textSize="20dp" />
 
-        <ToggleButton
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New ToggleButton"
-            android:id="@+id/toggleButton2"
+            android:id="@+id/checkBox2"
             android:layout_row="1"
             android:layout_column="1" />
 
@@ -65,11 +64,10 @@
             android:textStyle="bold|italic"
             android:textSize="20dp" />
 
-        <ToggleButton
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New ToggleButton"
-            android:id="@+id/toggleButton3"
+            android:id="@+id/checkBox3"
             android:layout_row="2"
             android:layout_column="1" />
 
@@ -83,11 +81,10 @@
             android:textStyle="bold|italic"
             android:textSize="20dp" />
 
-        <ToggleButton
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New ToggleButton"
-            android:id="@+id/toggleButton4"
+            android:id="@+id/checkBox4"
             android:layout_row="3"
             android:layout_column="1" />
 
@@ -101,5 +98,40 @@
             android:layout_column="0"
             android:hint="Duracion de la partida" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="seg."
+            android:id="@+id/textView15"
+            android:layout_row="4"
+            android:layout_column="1" />
+
     </GridLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/cancelButton"
+            android:background="#d10404"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:id="@+id/saveButton"
+            android:background="#0a93ee"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp" />
+    </LinearLayout>
 </LinearLayout>
